@@ -10,8 +10,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'jiangmiao/auto-pairs'
     
     " Color preview
-    " Plug 'ap/vim-css-color'
-    Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+"    Plug 'ap/vim-css-color'
+"    Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
     " Airline
     Plug 'vim-airline/vim-airline'
