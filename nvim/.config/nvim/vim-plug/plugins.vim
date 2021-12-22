@@ -1,5 +1,11 @@
 call plug#begin('~/.config/nvim/autoload/plugged')
 
+	Plug 'scrooloose/nerdtree'                         " Nerdtree
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'     " Highlighting Nerdtree
+    Plug 'ryanoasis/vim-devicons'                      " Icons for Nerdtree
+
+	" Use release branch (recommend)
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
     " Better Syntax Support
     Plug 'sheerun/vim-polyglot'
 
@@ -10,8 +16,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'jiangmiao/auto-pairs'
     
     " Color preview
-"    Plug 'ap/vim-css-color'
-"    Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+    Plug 'ap/vim-css-color'
+    " Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
     " Airline
     Plug 'vim-airline/vim-airline'

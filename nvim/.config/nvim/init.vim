@@ -1,3 +1,2 @@
 source $HOME/.config/nvim/vim-plug/plugins.vim
-
-set rnu
+source $HOME/.config/nvim/vim-plug/config.vim
