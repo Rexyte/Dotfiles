@@ -116,3 +116,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 eval "$(starship init zsh)"
+
+if [ -d "$HOME/.local/bin" ] ;
+  then PATH="$HOME/.local/bin:$PATH"
+fi

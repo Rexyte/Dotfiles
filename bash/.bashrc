@@ -145,4 +145,7 @@ if [ -f /etc/bash.command-not-found ]; then
 fi
 
 eval "$(starship init bash)"
-. "$HOME/.cargo/env"
+
+if [ -d "$HOME/.cargo" ] ;
+	then . "$HOME/.cargo/env"
+fi
