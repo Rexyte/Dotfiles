@@ -5,7 +5,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'ryanoasis/vim-devicons'                      " Icons for Nerdtree
 
 	" Use release branch (recommend)
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	" Plug 'neoclide/coc.nvim', {'branch': 'release'}
     " Better Syntax Support
     Plug 'sheerun/vim-polyglot'
 
