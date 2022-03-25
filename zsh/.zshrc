@@ -36,5 +36,5 @@ unset file
 #source $HOME/.config/zsh/path
 #source $HOME/.config/zsh/zsh_highlight
 #source $HOME/.config/zsh/bindkeys
-
+export TMPDIR=$HOME/tmp
 eval "$(starship init zsh)"
