@@ -1,3 +1,3 @@
-if [ -d "$HOME/.cargo" ] ;
-	then . "$HOME/.cargo/env"
-fi
+# if [ -d "$HOME/.cargo" ] ;
+# 	then . "$HOME/.cargo/env"
+# fi

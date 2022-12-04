@@ -38,3 +38,4 @@ unset file
 #source $HOME/.config/zsh/bindkeys
 export TMPDIR=$HOME/tmp
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
