@@ -69,6 +69,6 @@ fi
 
 eval "$(starship init bash)"
 
-if [ -d "$HOME/.cargo" ] ;
-	then . "$HOME/.cargo/env"
+if [ -f $HOME/.cargo/env ] ;
+	then . $HOME/.cargo/env
 fi
