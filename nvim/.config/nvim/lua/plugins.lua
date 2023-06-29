@@ -12,6 +12,30 @@ return require('packer').startup(function(use)
 
   use { 'norcalli/nvim-colorizer.lua' }
 
-  use { "loctvl842/monokai-pro.nvim" }
+  use {
+    "loctvl842/monokai-pro.nvim",
+    config = function()
+      require("monokai-pro").setup()
+    end
+  }
 
+  -- Neovim tree
+  use { "nvim-tree/nvim-tree.lua" }
+  -- Neovim tree icons
+  use { "nvim-tree/nvim-web-devicons" }
+
+  -- Tabs
+  use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' }
+  
+  -- Status line
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
+
+  use {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+  }
 end)
