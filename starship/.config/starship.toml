@@ -5,23 +5,27 @@ add_newline = false
 [character]                            # The name of the module we are configuring is "character"
 success_symbol = "[➜](bold green)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
 error_symbol = "[✗](bold red)"
-vicmd_symbol = "[V](bold green)"
+vicmd_symbol = "[✔](bold green)"
 
 #[aws]
 #symbol = "  "
 #
 #[conda]
 #symbol = " "
-#
+
+[c]
+symbol = " "
+#symbol = " "
+
 #[dart]
 #symbol = " "
 #
 #[directory]
 #read_only = " "
 #
-#[docker_context]
-#symbol = " "
-#
+[docker_context]
+symbol = " "
+
 #[elixir]
 #symbol = " "
 #
@@ -31,15 +35,15 @@ vicmd_symbol = "[V](bold green)"
 #[git_branch]
 #symbol = " "
 #
-#[golang]
-#symbol = " "
-#
+[golang]
+symbol = " "
+
 #[hg_branch]
 #symbol = " "
 #
-#[java]
-#symbol = " "
-#
+[java]
+symbol = " "
+
 #[julia]
 #symbol = " "
 #
@@ -52,33 +56,33 @@ vicmd_symbol = "[V](bold green)"
 #[nix_shell]
 #symbol = " "
 #
-#[nodejs]
-#symbol = " "
-#
+[nodejs]
+symbol = " "
+
 #[package]
 #symbol = " "
-#
-#[perl]
-#symbol = " "
-#
-#[php]
-#symbol = " "
-#
-#[python]
-#symbol = " "
-#
-#[ruby]
-#symbol = " "
-#
-#[rust]
-#symbol = " "
-#
-#[scala]
-#symbol = " "
-#
-#[shlvl]
-#symbol = " "
-#
+
+[perl]
+symbol = " "
+
+[php]
+symbol = " "
+
+[python]
+symbol = " "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[scala]
+symbol = " "
+
+[shlvl]
+symbol = " "
+
 #[swift]
 #symbol = "ﯣ "
 
