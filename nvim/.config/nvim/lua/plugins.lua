@@ -1,54 +1,130 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
--- Only required if you have packer configured as `opt`
-vim.cmd.packadd('packer.nvim')
+vim.g.mapleader = " "
 
-return require('packer').startup(function(use)
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
-
+require("lazy").setup({
   -- Post-install/update hook with neovim command
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
 
-  use { 'norcalli/nvim-colorizer.lua' }
+  {
+    'nvim-telescope/telescope.nvim', tag = '0.1.8',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'debugloop/telescope-undo.nvim',
+      'nvim-telescope/telescope-ui-select.nvim',
+      'nvim-telescope/telescope-live-grep-args.nvim',
+    }
+  },
+  
+  { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+  
+  {
+    "AckslD/nvim-neoclip.lua",
+    dependencies = {
+      { "nvim-telescope/telescope.nvim" },
+    }
+  },
 
-  use {
-    "loctvl842/monokai-pro.nvim",
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    opts = {
+      routes = {
+        {
+          filter = { event = "notify", find = "No information available" },
+          opts = { skip = true },
+        },
+      },
+      presets = {
+        lsp_doc_border = true,
+      },
+    },
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+  },
+
+  {
+    "exosyphon/telescope-color-picker.nvim",
+    config = function()
+      vim.keymap.set("n", "<leader>uC", "<cmd>Telescope colors<CR>", { desc = "Telescope Color Picker" })
+    end,
+  },
+  {
+    "mbbill/undotree",
+    config = function()
+      vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<CR>", { desc = "Telescope Undo" })
+    end,
+  },
+
+
+  {
+    "aaronhallaert/advanced-git-search.nvim",
+    dependencies = {
+      'nvim-telescope/telescope.nvim',
+      'tpope/vim-fugitive',
+      'tpope/vim-rhubarb',
+    },
+  },
+
+  'norcalli/nvim-colorizer.lua',
+
+  {
+    'loctvl842/monokai-pro.nvim',
     config = function()
       require("monokai-pro").setup()
     end
-  }
+  },
 
   -- Neovim tree
-  use { "nvim-tree/nvim-tree.lua" }
+  'nvim-tree/nvim-tree.lua',
   -- Neovim tree icons
-  use { "nvim-tree/nvim-web-devicons" }
+  'nvim-tree/nvim-web-devicons',
 
   -- Tabs
-  use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' }
+  {
+    'akinsho/bufferline.nvim',
+    version = "*", 
+    dependencies = 'nvim-tree/nvim-web-devicons'
+  },
 
   -- Status line
-  use {
+  {
     'nvim-lualine/lualine.nvim',
-    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-  }
+    dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true }
+  },
 
-  use {
+  {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
-  }
+  },
 
-    -- Autocompletion
-  use { 'hrsh7th/nvim-cmp' }
-  use { 'hrsh7th/cmp-buffer' }
-  use { 'hrsh7th/cmp-path' }
-  use { 'saadparwaiz1/cmp_luasnip' }
-  use { 'hrsh7th/cmp-nvim-lsp' }
-  use { 'hrsh7th/cmp-nvim-lua' }
+  -- Autocompletion
+  'hrsh7th/nvim-cmp',
+  'hrsh7th/cmp-buffer',
+  'hrsh7th/cmp-path',
+  'saadparwaiz1/cmp_luasnip',
+  'hrsh7th/cmp-nvim-lsp',
+  'hrsh7th/cmp-nvim-lua',
 
   -- Snippets
-  use { 'L3MON4D3/LuaSnip' }
-  use { 'rafamadriz/friendly-snippets' }
+  {
+    'L3MON4D3/LuaSnip',
+    version = "v2.3.0"
+  },
+  'rafamadriz/friendly-snippets',
 
-end)
+})
